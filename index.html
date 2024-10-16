@@ -138,7 +138,24 @@
             <option
                 value="https://docs.google.com/spreadsheets/d/1OYCqjnEoyi2ojxhfTZIUoT8f-Je8jq9mI73a3jVdiQI/edit?usp=drive_link">
                 الصف السادس</option>
-            <!-- المزيد من الخيارات هنا -->
+            <option
+                value="https://docs.google.com/spreadsheets/d/1xp1R3gD7l50a_pToAHzCKC5myggKXEnRgrRtLnYV3gA/edit?usp=drive_link">
+                الصف السابع</option>
+            <option
+                value="https://docs.google.com/spreadsheets/d/1u2dyvKB1pROo24TkDuRPcfZveHdQiWHoYCEiV3bFANw/edit?usp=drive_link">
+                الصف الثامن</option>
+            <option
+                value="https://docs.google.com/spreadsheets/d/1eOA0xG0WB3IUue9oOHNK3oCg_GZzgMmKmYYOU4LXwEo/edit?usp=drive_link">
+                الصف التاسع</option>
+            <option
+                value="https://docs.google.com/spreadsheets/d/1RawfYx3bLPFW_VrHIkkyUcfryaoaeskcsvbTKjdtCB4/edit?usp=drive_link">
+                الصف العاشر</option>
+            <option
+                value="https://docs.google.com/spreadsheets/d/1Sox46Jhp-_4UjaI2chNRd7zJMwiZl8MMjmMY3u_66Gc/edit?usp=drive_link">
+                الصف الحادي عشر</option>
+            <option
+                value="https://docs.google.com/spreadsheets/d/1j6mPf_uOsMP8YtcG8FWZDPolb8X4PuaqOK6TtD6CuEE/edit?usp=drive_link">
+                الصف الثاني عشر</option>
         </select>
 
         <button id="submitButton" disabled>عرض الصف</button>
@@ -160,19 +177,38 @@
         const activateCheckbox = document.getElementById('activateCheckbox');
         const gradeSelect = document.getElementById('gradeSelect');
         const timeoutMessage = document.getElementById('timeoutMessage');
-
-        submitButton.disabled = !activateCheckbox.checked;
-
-        activateCheckbox.addEventListener('change', function () {
+    
+        // استعادة حالة checkbox وحالة الرسالة من localStorage عند تحميل الصفحة
+        window.onload = function() {
+            const checkboxState = localStorage.getItem('checkboxState');
+            if (checkboxState !== null) {
+                activateCheckbox.checked = (checkboxState === 'true');
+            }
+            submitButton.disabled = !activateCheckbox.checked;
+    
+            // استعادة حالة الرسالة
+            const messageVisible = localStorage.getItem('messageVisible');
+            if (messageVisible === 'true') {
+                timeoutMessage.style.display = 'block';
+            } else {
+                timeoutMessage.style.display = 'none';
+            }
+        };
+    
+        // تحديث حالة checkbox والرسالة في localStorage عند تغييره
+        activateCheckbox.addEventListener('change', function() {
             const password = prompt('ONLY FOR ADMIN');
             if (password === 'admin123') {
+                localStorage.setItem('checkboxState', this.checked);
                 if (this.checked) {
                     submitButton.disabled = false;
                     timeoutMessage.style.display = 'none';
+                    localStorage.setItem('messageVisible', 'false'); // إخفاء الرسالة
                     alert('تم تفعيل زر عرض الصف.');
                 } else {
                     submitButton.disabled = true;
                     timeoutMessage.style.display = 'block';
+                    localStorage.setItem('messageVisible', 'true'); // إظهار الرسالة
                     alert('تم تعطيل زر عرض الصف.');
                 }
             } else {
@@ -180,7 +216,7 @@
                 this.checked = !this.checked;
             }
         });
-
+    
         submitButton.addEventListener('click', function () {
             const selectedGrade = gradeSelect.value;
             if (selectedGrade) {
@@ -190,6 +226,8 @@
             }
         });
     </script>
+    
+    
 </body>
 
 </html>
