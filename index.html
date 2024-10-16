@@ -8,29 +8,21 @@
     <style>
         body {
             background-color: #add8e6;
-            /* لون خلفية أزرق فاتح */
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
-            /* إضافة مسافة داخلية */
         }
 
         .container {
             border: 5px solid #003366;
-            /* إطار بلون أزرق غامق */
             border-radius: 15px;
-            /* زوايا دائرية */
             padding: 20px;
-            /* مسافة داخلية */
             display: inline-block;
-            /* لجعل الإطار يتناسب مع المحتوى */
             background-color: white;
-            /* لون خلفية الإطار */
         }
 
         h1 {
             color: hsl(355, 92%, 53%);
-            /* لون عنوان */
         }
 
         select,
@@ -42,62 +34,44 @@
 
         button {
             background-color: #4CAF50;
-            /* لون زر العرض أخضر */
             color: white;
-            /* لون النص في الزر */
             font-weight: bolder;
             border: none;
-            /* إزالة الحدود */
             border-radius: 5px;
-            /* حواف دائرية */
             cursor: pointer;
-            /* تغيير شكل المؤشر عند المرور فوق الزر */
         }
 
         button:disabled {
             background-color: #ccc;
-            /* لون الزر عندما يكون غير نشط */
             cursor: not-allowed;
-            /* تغيير شكل المؤشر عندما يكون الزر غير نشط */
         }
 
         button:hover:enabled {
             background-color: #45a049;
-            /* لون الزر عند التمرير إذا كان نشطاً */
         }
 
         select {
             background-color: yellow;
-            /* لون الخلفية */
             color: black;
-            /* لون النص */
             font-style: italic;
             font-weight: bold;
             border: 1px solid #ccc;
-            /* حدود بسيطة */
             border-radius: 5px;
-            /* حواف دائرية */
             padding: 5px;
-            /* مساحة داخلية */
         }
 
-        /* وضع Checkbox في أسفل الصفحة */
         .checkbox-container {
             margin-top: 30px;
-            /* مسافة أعلى */
         }
 
-        /* تنسيق العبارة "تم استنفاذ الوقت" */
         #timeoutMessage {
             color: red;
             font-size: 24px;
             font-weight: bold;
             display: none;
-            /* إخفاء العبارة في البداية */
             position: relative;
         }
 
-        /* حركة الوميض للنص */
         @keyframes blink {
             0% {
                 opacity: 1;
@@ -116,12 +90,11 @@
             animation: blink 1s infinite;
         }
 
-        /* تصميم العلامة التحذيرية */
         .warning-icon {
-            display: inline-block;
+            display:inline-block;
             width: 30px;
             height: 30px;
-            background-color: yellow;
+            background-color: #ffa600;
             border-radius: 50%;
             color: red;
             font-weight: bold;
@@ -129,18 +102,32 @@
             line-height: 30px;
             margin-right: 10px;
         }
+
+        /* تخصيص زر الخروج باللون الأحمر */
+        .exit-button {
+            background-color: red;
+            color: white;
+            font-weight: bolder;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .exit-button:hover {
+            background-color: #f74040;
+        }
     </style>
 </head>
 
 <body>
 
     <div class="container">
-        <img src="888.png" alt="Logo" style="max-height: 100px;"> <!-- استبدل "شعارك.png" برابط الشعار الخاص بك -->
+        <img src="888.png" alt="Logo" style="max-height: 100px;">
         <h1>25\24 ادخال الطلبة المجيدين</h1>
         <h3>الاختبار القصير الاول</h3>
-        <!-- عبارة "تم استنفاذ الوقت" مع العلامة التحذيرية -->
+        
         <div id="timeoutMessage" class="blinking">
-            <span class="warning-icon" font-style="black">!</span>لقد تخطيت المدة المقررة برجاء مراجعة الادارة
+            <span class="warning-icon">!</span>لقد تخطيت المدة المقررة برجاء مراجعة الادارة
         </div>
 
         <select id="gradeSelect">
@@ -151,38 +138,21 @@
             <option
                 value="https://docs.google.com/spreadsheets/d/1OYCqjnEoyi2ojxhfTZIUoT8f-Je8jq9mI73a3jVdiQI/edit?usp=drive_link">
                 الصف السادس</option>
-            <option
-                value="https://docs.google.com/spreadsheets/d/1xp1R3gD7l50a_pToAHzCKC5myggKXEnRgrRtLnYV3gA/edit?usp=drive_link">
-                الصف السابع</option>
-            <option
-                value="https://docs.google.com/spreadsheets/d/1u2dyvKB1pROo24TkDuRPcfZveHdQiWHoYCEiV3bFANw/edit?usp=drive_link">
-                الصف الثامن</option>
-            <option
-                value="https://docs.google.com/spreadsheets/d/1eOA0xG0WB3IUue9oOHNK3oCg_GZzgMmKmYYOU4LXwEo/edit?usp=drive_link">
-                الصف التاسع</option>
-            <option
-                value="https://docs.google.com/spreadsheets/d/1RawfYx3bLPFW_VrHIkkyUcfryaoaeskcsvbTKjdtCB4/edit?usp=drive_link">
-                الصف العاشر</option>
-            <option
-                value="https://docs.google.com/spreadsheets/d/1Sox46Jhp-_4UjaI2chNRd7zJMwiZl8MMjmMY3u_66Gc/edit?usp=drive_link">
-                الصف الحادي عشر</option>
-            <option
-                value="https://docs.google.com/spreadsheets/d/1j6mPf_uOsMP8YtcG8FWZDPolb8X4PuaqOK6TtD6CuEE/edit?usp=drive_link">
-                الصف الثاني عشر</option>
+            <!-- المزيد من الخيارات هنا -->
         </select>
 
         <button id="submitButton" disabled>عرض الصف</button>
-        <!-- إضافة زرين لعرض Google Sheets -->
+        
         <div class="button-container">
             <button onclick="window.open('https://docs.google.com/spreadsheets/d/1evlcZLmeoTAZsy0gjQss70p5aGYM4Je-wNyyaGGtwH4/edit?usp=drive_link')">عدد المجيدون</button>
             <button onclick="window.open('https://docs.google.com/spreadsheets/d/1OzQ4ct1Z4A4jUXDUKJvHaT5v7pGfkQF_D52IahotEMo/edit?usp=drive_link')">حركة الرصد</button>
-         </div>
+            <!-- زر الخروج باللون الأحمر -->
+            <button class="exit-button" onclick="window.close()">خروج</button>
+        </div>
 
-        <!-- مربع اختيار للتحكم في زر عرض الصف -->
         <div class="checkbox-container">
             <input type="checkbox" id="activateCheckbox" checked> <label for="activateCheckbox">CONTROL</label>
         </div>
-         
     </div>
 
     <script>
@@ -191,39 +161,32 @@
         const gradeSelect = document.getElementById('gradeSelect');
         const timeoutMessage = document.getElementById('timeoutMessage');
 
-        // تفعيل الزر عند تحميل الصفحة لأن الـ Checkbox مفعل افتراضيًا
         submitButton.disabled = !activateCheckbox.checked;
 
-        // التعامل مع حالة تغيير وضع الـ Checkbox
         activateCheckbox.addEventListener('change', function () {
             const password = prompt('ONLY FOR ADMIN');
-            if (password === 'admin123') {  // كلمة السر هنا "admin123"، يمكنك تغييرها
+            if (password === 'admin123') {
                 if (this.checked) {
                     submitButton.disabled = false;
-                    timeoutMessage.style.display = 'none'; // إخفاء العبارة إذا تم التفعيل
+                    timeoutMessage.style.display = 'none';
                     alert('تم تفعيل زر عرض الصف.');
                 } else {
                     submitButton.disabled = true;
-                    timeoutMessage.style.display = 'block'; // إظهار العبارة عند التعطيل
+                    timeoutMessage.style.display = 'block';
                     alert('تم تعطيل زر عرض الصف.');
                 }
             } else {
                 alert('كلمة السر غير صحيحة. الزر سيبقى كما هو.');
-                this.checked = !this.checked; // إرجاع حالة الـ Checkbox إلى ما كانت عليه
+                this.checked = !this.checked;
             }
         });
 
-        // التعامل مع الضغط على الزر
         submitButton.addEventListener('click', function () {
-            if (submitButton.disabled) {
-                alert('لقد تم الإغلاق');
+            const selectedGrade = gradeSelect.value;
+            if (selectedGrade) {
+                window.open(selectedGrade, '_blank');
             } else {
-                const selectedGrade = gradeSelect.value;
-                if (selectedGrade) {
-                    window.open(selectedGrade, '_blank');
-                } else {
-                    alert('يرجى اختيار صف دراسي.');
-                }
+                alert('يرجى اختيار صف دراسي.');
             }
         });
     </script>
